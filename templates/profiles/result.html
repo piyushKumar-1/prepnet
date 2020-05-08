@@ -1,0 +1,21 @@
+{% extends 'base_html.html' %}
+
+{% block replace %}
+
+<div class="mar">
+  {% for profile in profiles %}
+
+    <div class="card" style="margin-top:10px; display:flow-root !important; border-radius:40px;">
+      <div class="card-body" style="width:70%; float:left;">
+        <h4 class="card-title"> <img class="rounded-circle" src="{{ profile.display_picture.url }}" style="height:100px; width:100px;"></h4>
+        <a href="/construction/"><p class="card-text" >{{ profile.name }}</p></a>
+         <small>{{profile.user.email}}</small>
+        <p><small style="margin:3%;">Bio: {{ profile.bio }}</small></p>
+      </div>
+      <div style="width:25%; float:left; margin-top:10%">
+        <a href="/construction/" class="card-link" >Send Requests</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

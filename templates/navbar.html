@@ -1,0 +1,76 @@
+{% load static %}
+
+
+
+<nav class="navz navbar navbar-expand-md navbar-light fixed-top bg-light" id="yup" >
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'prep:home' %}"><img src="{% static 'logo0.png' %}" width="90px" height="50px" alt="Prep-Net"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="/timeline">Timeline</a>
+            </li>
+
+            {% else %}
+
+            {% endif %}
+          </ul>
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+              <form class="form-inline my-2 my-lg-0" action="/search?st" >
+                <input class="form-control mr-sm-2" type="Search" placeholder="Search Friends" aria-label="Search" name="search" >
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </li>
+
+            <li class="nav-item dis">
+              <a class="nav-link" href="/myprofile/">My Profile</a>
+            </li>
+            <li class="nav-item dis">
+              <a href="/upload/" class="nav-link">Add your project</a>
+
+            </li>
+            <li class="nav-item dis">
+              <a href="/timeline/test/" class="nav-link">Amcat Practice</a>
+            </li>
+            <li class="nav-item dis">
+
+              <a href="/timeline/team/" class="nav-link">Make a Team</a>
+
+            </li>
+            <li class="nav-item dis">
+              <a href="/timeline/team/allteams/" class="nav-link">Show All Teams</a>
+            </li>
+            <li class="nav-item dropdown multi-level-dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user }}
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                    <a class="dropdown-item" href="/profile/myprojects">My Projects</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Log out</a>
+                  </div>
+            </li>
+
+
+
+
+
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <dir class="top"></dir>

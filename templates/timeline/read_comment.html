@@ -1,0 +1,42 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% block content %}
+{% include 'sidebar.html' %}
+
+<div class="content m" style="text-align:left;">
+        <br>
+        {% if user.is_authenticated %}
+            {% for post in posts %}
+                <div class="card tim-card">
+                    {% for profile in profiles %}
+                        {% if profile.user_id == post.user_id %}
+                        <h6 style="font-size:22px;font-family:Sofia;padding:10px;margin-bottom:0px;"><img class="rounded-circle" src="{{ profile.display_picture.url }}" alt="Card image cap" style="width:40px; height:40px;">  {{ profile.name }}</h6>
+
+                        {% endif %}
+                    {% endfor %}
+                    <img class="card-img-top" src="{{ post.display_picture.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title border-bottom btn-social btn-behance hoverWrapper">{{ post.Project_Name }}
+                                   <code class="hoverShow1 k">Uploaded by: {{ post.user }}</code>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <h4 style="font-family:Caveat;font:bold;">Comments: </h4>
+                            {% for cmnt in cmnts %}
+                                {% if cmnt.id is post.id %}
+                                    <div  class="border" style="border-radius:20px;padding:10px;margin:5px;width:relative;">
+                                        <h6 style="font-family:Righteous;">{{ cmnt.by }}: {{ cmnt.comment }}</h6><small>{{ cmnt.at }}</small>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>Login in first, <a href="{% url 'prep:login' %}">click here</a></h3>
+        {% endif %}
+
+
+</div>
+
+{% endblock %}

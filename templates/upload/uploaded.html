@@ -1,0 +1,18 @@
+{% extends 'base_html.html' %}
+{% load static %}
+
+{% block replace %}
+    <CENTER>
+        <div class="jumbotron">
+            <h1><br>Hello {{ user }}</h1>
+                <p>its an awesome project</p>
+                <hr class="my-4">
+                        <img src="{{ post.display_picture.url }}" class="image_responsive" width="150px" height="200px"><br>
+                        <p>{{ user_pr.display_picture.url }} uploaded by {{ user }} {{ user_pr.user }}</p><br>
+
+                     <img src="{{ MEDIA_URL }}{{ user_pr.display_picture.url }}" class="image_responsive" width="150px" height="200px">
+
+                <p>You have learned some awesome technologies like {{ user_pr.technologies }}</p>
+        </div>
+    </CENTER>
+{% endblock %}

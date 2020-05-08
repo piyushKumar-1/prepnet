@@ -1,0 +1,15 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% block content %}
+
+    <br><h1 style="font-family:sofia;">Need a team, add your requirements</h1><br><br><hr>
+    <form action="{{ url }}" method="post">
+        {{ message }}
+          {% csrf_token %}
+        <table style="font-family:Righteous;" align="center">
+            {{ form.as_table }}
+        </table><br>
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Login</button>
+    </form>
+
+{% endblock %}

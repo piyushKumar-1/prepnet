@@ -1,0 +1,200 @@
+.black{
+    color: black;
+}
+
+
+
+.kkk{
+    margin-left:22%;
+    margin-right:inherit;
+}
+
+
+.r{
+    width:20%;
+    position:relative;
+
+}
+
+.m{
+    margin-right:17%;
+}
+
+.pad{
+     padding:5px 7px;
+}
+
+
+.tim-card{width: 70%; margin-left:130px; margin-bottom:50px;}
+
+
+.clr{
+  background-color: #f1f1f1;
+    z-index:0;
+
+}
+
+
+.navz{
+    z-index:10000;
+    y-index:1000;
+    x-index:1000;
+
+}
+
+.sidelw{
+width:200px;
+  z-index:100;
+  position:relative;
+    background-color: navbar-light;
+    height:60% !important;
+
+}
+
+
+.top{
+  margin-top:100px;
+}
+
+.sidebar {
+  padding: 0;
+  position: fixed;
+  overflow: auto;
+  height:50%;
+
+}
+
+
+
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+}
+
+.sidebar a:hover:not(.active) {
+    color:black;
+    text-decoration: none;
+
+}
+
+div.content {
+  margin-left: 11%;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.k{
+    padding:10px;
+}
+
+
+.z{
+text-align: left !important;
+}
+
+
+.mar{
+margin-left:20%;
+margin-right:20%;
+padding:10px;
+}
+
+
+
+.dis{
+display:none !important;
+visibility:hidden;
+}
+
+
+@media screen and (min-width: 479px) {
+
+.add-left{
+    margin-left:10%;
+}
+
+
+
+.r{
+
+    right:5%;
+    width:14%;
+
+}
+
+}
+
+
+
+@media screen and (max-width: 750px) {
+
+.tim-card{width: 98% !important; margin-left:0% !important; margin-bottom:50px;}
+
+
+
+.mar{
+
+margin-left:2% !important;
+
+}
+
+.dis{
+display:block !important;
+visibility:visible !important;
+}
+
+.disn{
+    display:none !important;
+    visibility:hidden;
+}
+
+.m{
+    margin-right:0% !important;
+}
+
+.new{
+margin-left:0%;
+}
+
+.r{
+    display:none;
+    visibility:hidden;
+}
+
+.sinup{
+
+    margin-left:10%;
+    margin-right:10%;
+    width:70% !important;
+}
+  .sidebar {
+
+    width: 100% !important;
+    height: relative !important;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;margin-right: 0}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+.hoverWrapper:hover .hoverShow1 {
+ display: block;
+ color:black;
+}
+
+.hoverWrapper .hoverShow1 {
+ display: none;
+
+}

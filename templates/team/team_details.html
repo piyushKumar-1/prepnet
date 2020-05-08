@@ -1,0 +1,13 @@
+{% extends 'base_html.html' %}
+
+{% block replace %}
+
+<div class="mar">
+
+    <h3>Skills Required</h3>
+    {% for member in team %}
+        {{ member.member_skill }}<br>
+
+    {% endfor %}
+</div>
+{% endblock %}

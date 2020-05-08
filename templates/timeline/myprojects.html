@@ -1,0 +1,31 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% block content %}
+{% include 'sidebar.html' %}
+<div class="content m" style="text-align:left;">
+        <br>
+        {% if user.is_authenticated %}
+
+           {% for post in posts %}
+                {% if post.user_id == user.id %}
+                    <div class="card" style="width: 70%; margin-left:130px; margin-bottom:50px;">
+                        <img class="card-img-top" src="{{ post.display_picture.url }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.Project_Name }}</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                            <div class="card-body">
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <h3>Login in first, <a href="{% url 'prep:login' %}">click here</a></h3>
+        {% endif %}
+
+
+</div>
+
+{% endblock %}

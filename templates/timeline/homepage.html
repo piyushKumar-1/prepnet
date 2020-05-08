@@ -1,0 +1,53 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+
+{% include 'sidebar.html' %}
+<div class="content m" style="text-align:left;">
+        <br>
+    <h3 class="new kkk" style="font-family:Sacramento;font-size:300%;">{{ str }}</h3><br><br>
+
+            {% for post in posts %}
+                <div class="card tim-card shadow">
+                    {% for profile in profiles %}
+                        {% if profile.user_id == post.user_id %}
+                            <h6 style="font-size:22px;font-family:Sofia;padding:10px;margin-bottom:0px;"><img class="rounded-circle" src="{{ profile.display_picture.url }}" alt="Card image cap" style="width:40px; height:40px;">  {{ profile.name }}</h6>
+                        {% endif %}
+                    {% endfor %}
+                    <img class="card-img-top" src="{{ post.display_picture.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <a style = "text-decoration:none;" href="project-details/{{post.id}}">
+                                <h4 class="card-title border-bottom btn-social btn-behance hoverWrapper">{{ post.Project_Name }}
+                                       <small class="hoverShow1 k">Uploaded by: {{ post.user }}</small>
+                                </h4>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="border" style="padding:10px; border-radius:10px;">
+                                <form class="form-inline" action="add-comment/{{post.id}}/?">
+                                    <input placeholder="Add comment" class="form-control mr-sm-1" style="width:60%;" type="search" name="cmnt">
+                                    <button type="submit" style="background:none;border:none; margin:0;padding:0;" class="card-link my-2 my-sm-0 text-primary">Post</button>
+                                </form>
+                            </div>
+                            {% for cmnt in cmnts %}
+                                {% if cmnt.id is post.id %}
+                                    <div  style="padding:10px;margin:5px;width:relative;">
+                                        <h6 class="card-text" style="font-family:Righteous;">{{ cmnt.by }}: {{ cmnt.comment }}</h6><small>{{ cmnt.at }}</small>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                            <a href="comments/{{post.id}}" class="card-link">Read All</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3>Login in first, <a href="{% url 'prep:login' %}">click here</a></h3>
+        {% endif %}
+
+
+</div>
+
+{% endblock %}

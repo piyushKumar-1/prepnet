@@ -1,0 +1,39 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% block content %}
+{% include 'sidebar.html' %}
+
+<div class="content m" style="text-align:left;">
+        <br>
+        {% if user.is_authenticated %}
+                <div class="card tim-card">
+                    <img class="card-img-top" src="{{ post.display_picture.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title border-bottom btn-social btn-behance">{{ post.Project_Name }},
+                                   <code>Uploaded by: {{ post.user }}</code>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <p>{{ post.description }}</p>
+                            <h4>Technologies Used:</h4>
+                            <ul>
+                                {% for li in tech %}
+                                   <li>{{li}}</li>
+                                {% endfor %}
+                            </ul>
+                            <h4 style="font-family:Caveat;font:bold;">Comments: </h4>
+                            {% for cmnt in cmnts %}
+                                    <div  class="border" style="border-radius:20px;padding:10px;margin:5px;width:relative;">
+                                        <h6 style="font-family:Righteous;">{{ prof.name }}: {{ cmnt }}</h6><small>{{ cmnt.created_at }}</small>
+                                    </div>
+                            {% endfor %}
+                        </div>
+                </div>
+        {% else %}
+            <h3>Login in first, <a href="{% url 'prep:login' %}">click here</a></h3>
+        {% endif %}
+
+
+</div>
+
+{% endblock %}

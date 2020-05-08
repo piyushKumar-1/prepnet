@@ -1,0 +1,21 @@
+{% extends 'base_html.html' %}
+
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <center>
+            <p class="lead">Upload Your work</p>
+            <hr class="my-4">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form.as_table }}
+                </table><br>
+                <button type="submit" class="btn btn-outline-primary my-2 my-sm-0" name="register">Upload</button>
+            </form>
+        </center>
+    {% else %}
+        <br><br>
+        <h3>Login in first, <a href="{% url 'prep:login' %}">click here</a></h3>
+    {% endif %}
+{% endblock %}

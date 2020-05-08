@@ -1,0 +1,93 @@
+{% extends 'base_html.html' %}
+
+{% load static %}
+
+
+
+{% if user.is_authenticated %}
+    {% block content %}
+
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<style>
+.im {
+    padding:10px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   }
+</style>
+
+
+
+    <div class="sidebar r border-left border-right">
+
+
+      <a href="/upload/" class="border-bottom btn-social btn-behance hoverWrapper"><i class="fas fa-brain fa-3x"></i>
+       <code class="hoverShow1 k">Add your project</code>
+      </a>
+
+      <a href="/timeline/test/" class="border-bottom btn-social btn-behance hoverWrapper"><i class="fas fa-code fa-3x"></i>
+       <code class="hoverShow1 k">Amcat Practice</code>
+      </a>
+      <a href="/timeline/team/" class="border-bottom btn-social btn-behance hoverWrapper"><i class="fas fa-group fa-3x"></i>
+       <code class="hoverShow1 k">Team </code>
+      </a>
+
+
+    </div>
+
+    {% endblock %}
+
+    {% block replace %}
+    {% for profile in profiles %}
+
+        <div class="border-right" style="width:26%; padding:10px; border-radius:50px;">
+
+            <div style="text-align:center; body:center;">
+                <img class="im rounded-circle"  src="{{ MEDIA_URL }}{{ profile.display_picture.url }}" height="70%" width="70%">
+                <table style="margin-left:30%; margin-top:40px;">
+                    <tr>
+                        <th>Name:</th>
+                        <td><h3>{{ profile.name }}</h3></td>
+                    </tr>
+                    <tr>
+                        <th>Gender:</th>
+                        <td><h3>{{ profile.gender }}</h3></td>
+                    </tr>
+                    <tr>
+                        <th>Location:</th>
+                        <td><h3>{{ profile.location }}</h3></td>
+                    </tr>
+                    <tr>
+                        <th>Skills:</th>
+                        <td><h3>{{ profile.skills }}</h3></td>
+                    </tr>
+                    <tr>
+                        <th>Bio:</th>
+                        <td><h3>{{ profile.bio }}</h3></td>
+                    </tr>
+                </table>
+
+
+
+
+
+            </div>
+
+
+        </div>
+        <br><code style="font-size:300%">Construction work going on......</code><br><br>
+
+
+        <i class="fa fa-spinner fa-pulse fa-5x"></i><br>
+
+        <small >Go back to Timeline,<a href="/timeline/">click here</a></small>
+
+    {% endfor %}
+
+    {% endblock %}
+
+{% else %}
+
+   <br><code style="font-size:300%">Signup first Sir.......<a href="/signup/">click here</a></code><br><br>
+{% endif %}

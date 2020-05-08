@@ -1,0 +1,22 @@
+{% extends 'base_html.html' %}
+
+{% block replace %}
+
+<div class="mar" style="padding:10px;">
+  {% if size == 0 %}
+  <h1 style="font-family:sofia">No teams TO join Add a team request.....<a href="/timeline/team/">(click here)</a></h1>
+  {% endif %}
+  {% for team in teams %}
+  <a href="{{team.id}}/details">
+    <div class="card" style="margin-top:10px; display:flow-root !important;">
+      <div class="card-body">
+        <h4 class="card-title">{{ team.team_name }}</h4>
+        <p class="card-text">{{team.user.email}}</p>
+        <a href="/construction/" class="card-link" style="float:inline-end;">Join Team</a>
+        <small style="margin:3%;">Workin on: {{ team.working_on }} Members required: {{team.team_size}}</small>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

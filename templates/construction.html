@@ -1,0 +1,17 @@
+{% extends 'base_html.html' %}
+{% load static %}
+{% block replace %}
+
+{% if user.is_authenticated %}
+    <br><code style="font-size:300%">Construction work going on......</code><br><br>
+
+
+    <i class="fa fa-spinner fa-pulse fa-5x"></i><br>
+
+    <small >Go back to Timeline,<a href="/timeline/">click here</a></small>
+{% else %}
+
+   <br><code style="font-size:300%">Login first Sir.......<a href="/login/">click here</a></code><br><br>
+{% endif %}
+
+{% endblock %}
